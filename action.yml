@@ -6,6 +6,9 @@ inputs:
   webhook:
     description: "Space webhook endpoint. If not set, env.SPACE_WEBHOOK will be used."
     required: false
+  token:
+    description: "Space webhook token."
+    required: false
   status:
     description: "Job status. Should be bound to job.status. Default to success."
     required: false
