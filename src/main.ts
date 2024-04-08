@@ -54,42 +54,8 @@ export function getPayload(inputs: Readonly<Inputs>): Object {
     const eventDetail = formatEvent(eventName, payload)
 
     let embed: { [key: string]: any } = {
-        color: inputs.color || statusOpts[inputs.status].color
-    }
-
-    if (!inputs.notimestamp) {
-        embed.timestamp = (new Date()).toISOString()
-    }
-
-    if (inputs.channel_id) {
-        embed.channel = `channel:id:${inputs.channel_id}`
-    }
-
-    // title
-    // if (inputs.title) {
-    // }
-
-    // if (inputs.url) {
-    //     embed.url = inputs.url
-    // }
-
-    // if (inputs.image) {
-    //     embed.image = {
-    //         url: inputs.image
-    //     }
-    // }
-
-    // if (!inputs.noprefix) {
-    //     embed.title = statusOpts[inputs.status].status + (embed.title ? `: ${embed.title}` : '')
-    // }
-
-    // if (inputs.description) {
-    //     embed.description = inputs.description
-    // }
-
-    if (!inputs.nocontext) {
-
-        embed.content = {
+        "channel": `channel:id:${inputs.channel_id}`,
+        "content": {
             "className": "ChatMessage.Block",
             "style": "PRIMARY",
             "outline": {
@@ -114,7 +80,7 @@ export function getPayload(inputs: Readonly<Inputs>): Object {
                             },
                             "style": "SECONDARY",
                             "size": "LARGE",
-                            "content": statusOpts[inputs.status].status + (embed.title ? `: ${embed.title}` : '')
+                            "content": statusOpts[inputs.status].status + (inputs.title ? `: ${inputs.title}` : '')
                         }
                     ]
                 },
@@ -171,7 +137,6 @@ export function getPayload(inputs: Readonly<Inputs>): Object {
             ]
         }
     }
-
     let discord_payload: any = embed
     // logDebug(`embed: ${JSON.stringify(embed)}`)
 
