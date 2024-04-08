@@ -64,7 +64,7 @@ inputs:
 
 runs:
   using: "node20"
-  main: "lib/main.js"
+  main: "lib/index.js"
 
 branding:
   color: "blue"
