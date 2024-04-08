@@ -4,7 +4,9 @@
   "description": "Post Github Actions CI status to Space Group",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest --verbose --ci"
+    "test": "jest --verbose --ci",
+    "build": "ncc build -o lib --minify src/main.ts",
+    "deps": "ncu --doctor -u"
   },
   "keywords": [
     "space",
