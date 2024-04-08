@@ -6,7 +6,7 @@ inputs:
   webhook:
     description: "Space webhook endpoint. If not set, env.SPACE_WEBHOOK will be used."
     required: false
-  token:
+  permanent_token:
     description: "Space webhook token."
     required: false
   status:
