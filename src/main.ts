@@ -28,6 +28,9 @@ function wrapWebhook(webhook: string, payload: Object, token: string): Promise<v
     return async function () {
         try {
             await axios.post(webhook, payload, { headers: { Authorization: `Bearer ${token}` } })
+            logInfo(`webhook: ${webhook}`)
+            logInfo(`payload: ${payload}`)
+            logInfo(`token: ${token}`)
         } catch (e: any) {
             if (e.response) {
                 logError(`Webhook response: ${e.response.status}: ${JSON.stringify(e.response.data)}`)
