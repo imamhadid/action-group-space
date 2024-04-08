@@ -59,7 +59,7 @@ export function getInputs(): Inputs {
 
     const inputs: Inputs = {
         webhooks: webhooks,
-        channel_id: core.getInput('channel_id').trim().toLowerCase(),
+        channel_id: core.getInput('channel_id'),
         token: core.getInput('permanent_token'),
         status: core.getInput('status').trim().toLowerCase(),
         content: core.getInput('content').trim(),
